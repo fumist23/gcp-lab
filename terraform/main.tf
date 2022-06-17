@@ -6,15 +6,3 @@ terraform {
     }
   }
 }
-
-provider "google" {
-  credentials = file("./credentials/service-account.json")
-
-  project = "satofumi-dev"
-  region  = "asia-northeast1"
-  zone    = "asia-northeast1-a"
-}
-
-resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
-}
