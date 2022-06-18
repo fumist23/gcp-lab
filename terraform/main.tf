@@ -6,7 +6,7 @@ terraform {
     }
   }
 
-  backend "gcs"{
+  backend "gcs" {
     credentials = "./credentials/service-account.json"
 
     bucket = "satofumi-dev-terraform"
