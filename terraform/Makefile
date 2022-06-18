@@ -9,3 +9,9 @@ plan:
 apply:
 	terraform apply
 
+show:
+	terraform show
+
+valid:
+	terraform validate
+
