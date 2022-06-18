@@ -15,3 +15,5 @@ show:
 valid:
 	terraform validate
 
+fmt:
+	terraform fmt
