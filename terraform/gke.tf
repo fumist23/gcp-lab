@@ -12,7 +12,7 @@ resource "google_container_cluster" "standard" {
   # vpc native networking mode (ref: https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips)
   networking_mode = "VPC_NATIVE"
   ip_allocation_policy {
-    cluster_ipv4_cidr_block = "/14"
+    cluster_ipv4_cidr_block  = "/14"
     services_ipv4_cidr_block = "/20"
   }
 
