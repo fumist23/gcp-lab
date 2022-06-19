@@ -5,7 +5,7 @@ metadata:
   labels:
     app: gcp-lab
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: gcp-lab
@@ -15,7 +15,7 @@ spec:
         app: gcp-lab
     spec:
       containers:
-      - name: gcp-lab-application
-        image: asia-northeast1-docker.pkg.dev/satofumi-dev/public/gcp-lab-application:0.0.1
+      - name: nginx
+        image: nginx:1.14.2
         ports:
-        - containerPort: 8080    
+        - containerPort: 80
