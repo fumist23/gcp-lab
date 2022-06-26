@@ -10,9 +10,4 @@ terraform {
       version = "4.25.0"
     }
   }
-
-  backend "gcs" {
-    bucket = "satofumi-dev-terraform"
-    prefix = "tfstate"
-  }
 }
