@@ -45,7 +45,7 @@ resource "google_container_node_pool" "standard" {
   }
 }
 
-resource "google_gke_hub_membership" "default" {
+resource "google_gke_hub_membership" "standard" {
   provider = google-beta
   membership_id = "standard"
   endpoint {
@@ -55,6 +55,6 @@ resource "google_gke_hub_membership" "default" {
   }
 
   authority {
-    issuer = "https://container.googleapis.com/v1/${google_container_cluster.my-standard.id}"
+    issuer = "https://container.googleapis.com/v1/${google_container_cluster.standard.id}"
   }
 }
