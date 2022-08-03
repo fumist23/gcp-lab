@@ -21,6 +21,10 @@ resource "google_container_cluster" "standard" {
   logging_service    = "logging.googleapis.com/kubernetes"
   monitoring_service = "monitoring.googleapis.com/kubernetes"
 
+  workload_identity_config {
+    identity_namespace = "satofumi-dev.srv.id.goog"
+  }
+
   release_channel {
     channel = "STABLE"
   }
@@ -38,5 +42,19 @@ resource "google_container_node_pool" "standard" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
+  }
+}
+
+resource "google_gke_hub_membership" "default" {
+  provider = google-beta
+  membership_id = "standard"
+  endpoint {
+    gke_cluster {
+      resource_link = "//container.googleapis.com/${google_container_cluster.standard.id}"
+    }
+  }
+
+  authority {
+    issuer = "https://container.googleapis.com/v1/${google_container_cluster.my-standard.id}"
   }
 }
