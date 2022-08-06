@@ -32,7 +32,8 @@ resource "google_container_cluster" "config" {
 
 resource "google_container_node_pool" "config" {
   name       = "config-cluster-node-pool"
-  cluster    = google_container_cluster.standard_2.id
+  cluster    = google_container_cluster.config.id
+  initial_node_count = 1
 
   autoscaling {
     min_node_count = 1
