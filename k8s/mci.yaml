@@ -1,0 +1,11 @@
+apiVersion: networking.gke.io/v1
+kind: MultiClusterIngress
+metadata:
+  name: gcp-lab-mci
+  namespace: test
+spec:
+  template:
+   spec:
+    backend:
+     serviceName: gcp-lab-mcs
+     servicePort: 80

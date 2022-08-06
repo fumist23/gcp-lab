@@ -7,5 +7,6 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-  - service_export.yaml
   - namespace.yaml
+  - mcs.yaml
+  - mci.yaml

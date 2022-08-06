@@ -1,0 +1,18 @@
+apiVersion: networking.gke.io/v1
+kind: MultiClusterService
+metadata:
+  name: gcp-lab-mcs
+  namespace: test
+spec:
+  template:
+   spec:
+    selector:
+     app: gcp-lab
+    ports:
+    - name: gcp-lab
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  clusters:
+  - link: "asia-northeast1-a/standard-cluster"
+  - link: "asia-northeast1-b/standard2-cluster"
