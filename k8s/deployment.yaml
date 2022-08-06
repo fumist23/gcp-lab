@@ -5,7 +5,7 @@ metadata:
   labels:
     app: gcp-lab
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: gcp-lab
@@ -16,6 +16,10 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: nginx:latest
         ports:
         - containerPort: 80
+        readinessProbe:
+            httpGet:
+              path: /
+              port: 80 

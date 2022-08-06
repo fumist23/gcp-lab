@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: gcp-lab-service
 spec:
+  type: NodePort
   selector:
     app: gcp-lab
   ports:
-    - protocol: TCP
+    - name: gcp-lab-port
+      protocol: TCP
       port: 80
       targetPort: 80
