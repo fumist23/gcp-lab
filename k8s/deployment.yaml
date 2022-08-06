@@ -15,11 +15,7 @@ spec:
         app: gcp-lab
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: whoami
+        image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
         ports:
-        - containerPort: 80
-        readinessProbe:
-            httpGet:
-              path: /
-              port: 80 
+        - containerPort: 8080
