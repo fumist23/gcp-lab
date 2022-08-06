@@ -33,6 +33,7 @@ resource "google_container_cluster" "standard" {
 resource "google_container_node_pool" "standard" {
   name       = "standard-cluster-node-pool"
   cluster    = google_container_cluster.standard.id
+  initial_node_count = 1
 
   autoscaling {
     min_node_count = 1
