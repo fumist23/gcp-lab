@@ -22,7 +22,7 @@ resource "google_container_cluster" "standard" {
   monitoring_service = "monitoring.googleapis.com/kubernetes"
 
   workload_identity_config {
-    identity_namespace = "satofumi-dev.srv.id.goog"
+    workload_pool = "satofumi-dev.svc.id.goog"
   }
 
   release_channel {
@@ -33,7 +33,11 @@ resource "google_container_cluster" "standard" {
 resource "google_container_node_pool" "standard" {
   name       = "standard-cluster-node-pool"
   cluster    = google_container_cluster.standard.id
-  node_count = 1
+
+  autoscaling {
+    min_node_count = 1
+    max_node_count = 5
+  }
 
   node_config {
     preemptible     = true
